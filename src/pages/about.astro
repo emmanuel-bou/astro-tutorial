@@ -1,4 +1,7 @@
 ---
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
 const pageTitle = "About Me";
 const identity = {
   firstName: "Emmanuel",
@@ -24,10 +27,6 @@ const textCase = "capitalize";
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
         <style define:vars={{skillColor,fontWeight,textCase}}>
-            h1 {
-              color: purple;
-              font-size: 4rem;
-            }
             .skill {
                 color: var(--skillColor);
                 font-weight: var(--fontWeight);
@@ -36,9 +35,7 @@ const textCase = "capitalize";
         </style>        
 	</head>
 	<body>
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/blog/">Blog</a>
+        <Navigation />
         
         <h1>{pageTitle}</h1>
         <h2>... and my new Astro site!</h2>
@@ -63,5 +60,7 @@ const textCase = "capitalize";
         {finished && <p>I finished this tutorial!</p>}
         
         {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
+
+        <Footer />
     </body>
 </html>
